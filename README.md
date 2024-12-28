@@ -89,7 +89,7 @@ Poderia ter utilizado o **Soft Delete**. Em vez de excluir a linha na base de da
 
 ---
 
-Diagrame de Use Cases
+# Diagrame de Use Cases
 
 ![Use Cases](DiagramaUseCases.jpg)
 
