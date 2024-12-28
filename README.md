@@ -111,6 +111,7 @@ Este caso de uso descreve como o sistema cria os dados dos clientes, sendo aplic
 
 ## **Ator Principal:**  
 Utilizador do sistema.
+
 ---
 
 ## **Pré-condições:**  
