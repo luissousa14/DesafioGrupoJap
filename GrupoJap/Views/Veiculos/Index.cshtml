@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Veiculo>
+
+@{
+    var title = ViewData["Title"];
+}
+
+<h1>Listagem de Veiculos</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Criar Veiculo</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnoFabrico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoCombustivel.Descritivo)
+            </th>
+            <th colspan="3" class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnoFabrico)
+                </td>
+                <td>
+                    @(item.Estado ? "Alugado" : "Disponivel")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoCombustivel.Descritivo)
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="bi bi-pencil"></i> Editar
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.Id">
+                        <i class="bi bi-eye"></i> Detalhes
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="bi bi-trash"></i> Remover
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

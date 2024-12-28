@@ -1,0 +1,53 @@
+﻿@model GrupoJap.Models.ContratoAluguer
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Contrato Aluguer</h1>
+
+<hr />
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="ClienteId" class="control-label"></label>
+                <select asp-for="ClienteId" class="form-control" asp-items="@(new SelectList(ViewBag.Clientes, "Value", "Text"))">
+                    <option value="">Selecione um cliente</option>
+                </select>
+                <span asp-validation-for="ClienteId" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="VeiculoId" class="control-label"></label>
+                <select asp-for="VeiculoId" class="form-control" asp-items="@(new SelectList(ViewBag.Veiculos, "Value", "Text"))">
+                    <option value="">Selecione um veiculo</option>
+                </select>
+                <span asp-validation-for="VeiculoId" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="QuilometragemInicial" class="control-label"></label>
+                <input asp-for="QuilometragemInicial" class="form-control" />
+                <span asp-validation-for="QuilometragemInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DataInicio" class="control-label"></label>
+                <input asp-for="DataInicio" class="form-control" type="date" value="@Model.DataInicio.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="DataInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DataFim" class="control-label"></label>
+                <input asp-for="DataFim" class="form-control" type="date" value="@Model.DataFim.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="DataFim" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex flex-row justify-content-between">
+                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,54 @@
+﻿@model Veiculo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Veiculos</h1>
+
+<hr />
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Marca" class="control-label"></label>
+                <input asp-for="Marca" class="form-control" />
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Modelo" class="control-label"></label>
+                <input asp-for="Modelo" class="form-control" />
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Matricula" class="control-label"></label>
+                <input asp-for="Matricula" class="form-control" />
+                <span asp-validation-for="Matricula" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="AnoFabrico" class="control-label"></label>
+                <input asp-for="AnoFabrico" class="form-control" />
+                <span asp-validation-for="AnoFabrico" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="TipoCombustivelId" class="control-label"></label>
+                <select asp-for="TipoCombustivelId" class="form-control" asp-items="@(new SelectList(ViewBag.TiposCombustivel, "Value", "Text"))">
+                    <option value="">Selecione um tipo de combustível</option>
+                </select>
+                <span asp-validation-for="TipoCombustivelId" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex flex-row justify-content-between">
+                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

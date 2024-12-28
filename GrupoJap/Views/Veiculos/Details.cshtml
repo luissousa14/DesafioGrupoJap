@@ -1,0 +1,51 @@
+﻿@model Veiculo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes Veiculo</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form>
+            <div class="form-group d-flex justify-content-end">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Marca" class="control-label"></label>
+                <input type="text" class="form-control" value="@Model.Marca" disabled />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Modelo" class="control-label"></label>
+                <input type="email" class="form-control" value="@Model.Modelo" disabled />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Matricula" class="control-label"></label>
+                <input type="text" class="form-control" value="@Model.Matricula" disabled />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="AnoFabrico" class="control-label"></label>
+                <input type="text" class="form-control" value="@Model.AnoFabrico" disabled />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="AnoFabrico" class="control-label"></label>
+                <input type="text" class="form-control" value="@(Model.Estado ? "Alugado" : "Disponível")" disabled />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TipoCombustivel.Descritivo" class="control-label"></label>
+                <input type="text" class="form-control" value="@Model.TipoCombustivel.Descritivo" disabled />
+            </div>
+
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>

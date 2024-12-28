@@ -1,0 +1,46 @@
+﻿@model GrupoJap.Models.ContratoAluguer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes Contrato Aluguer</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form>
+            <div class="form-group d-flex justify-content-end">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Cliente" class="control-label"></label>
+                <input type="text" class="form-control" value="@Model.Cliente.NomeCompleto/@Model.Cliente.Email" disabled />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Veiculo" class="control-label"></label>
+                <input type="text" class="form-control" value="@Model.Veiculo.Marca/ @Model.Veiculo.Modelo - @Model.Veiculo.Matricula" disabled />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="QuilometragemInicial" class="control-label"></label>
+                <input type="text" class="form-control" value="@Model.QuilometragemInicial" disabled />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DataInicio" class="control-label"></label>
+                <input type="text" class="form-control" value="@Model.DataInicio.ToString("dd/MM/yyyy")" disabled />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DataFim" class="control-label"></label>
+                <input type="text" class="form-control" value="@Model.DataFim.ToString("dd/MM/yyyy")" disabled />
+            </div>
+
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>

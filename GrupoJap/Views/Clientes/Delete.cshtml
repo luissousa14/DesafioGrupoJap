@@ -1,0 +1,47 @@
+﻿@model Cliente
+
+@{
+    var errorMessage = TempData["ErrorMessage"];
+}
+
+<h1>Remover Cliente</h1>
+
+<h3>Tem a certeza que pretende remover este cliente?</h3>
+<div>
+    <div class="card">
+        <div class="card-body">
+            <form asp-action="Delete">
+
+                <div class="form-group mb-3">
+                    <label asp-for="NomeCompleto" class="control-label"></label>
+                    <input type="text" class="form-control" value="@Model.NomeCompleto" disabled />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input type="email" class="form-control" value="@Model.Email" disabled />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Telefone" class="control-label"></label>
+                    <input type="text" class="form-control" value="@Model.Telefone" disabled />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="CartaConducao" class="control-label"></label>
+                    <input type="text" class="form-control" value="@(Model.CartaConducao ? "Sim" : "Não")" disabled />
+                </div>
+
+                <div class="form-group mb-3">
+                    <span class="text-danger">@errorMessage</span>
+                </div>
+
+                <div class="form-group d-flex flex-row justify-content-between">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Remover" class="btn btn-danger" />
+                    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
